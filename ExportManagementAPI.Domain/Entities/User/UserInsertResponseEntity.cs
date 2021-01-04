@@ -1,6 +1,6 @@
 ﻿namespace ExportManagementAPI.Domain.Entities.User
 {
-    public class UserInsertResponseEntity
+    public class UserInsertResponseEntity : UserResponseEntity
     {
         
     }

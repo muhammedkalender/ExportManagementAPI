@@ -8,5 +8,6 @@ namespace ExportManagementAPI.Domain.Services
     public interface IUserService
     {
         Task<ResponseEntity<UserResponseEntity>> GetById(Guid guid);
+        Task<ResponseEntity<UserInsertResponseEntity>> Insert(UserInsertRequestEntity userInsertRequestEntity);
     }
 }

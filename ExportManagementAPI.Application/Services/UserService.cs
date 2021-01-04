@@ -12,5 +12,10 @@ namespace ExportManagementAPI.Application.Services
         {
             throw new NotImplementedException();
         }
+
+        public Task<ResponseEntity<UserInsertResponseEntity>> Insert(UserInsertRequestEntity userInsertRequestEntity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
