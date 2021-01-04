@@ -2,6 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ExportManagementAPI.Application.Services;
+using ExportManagementAPI.Domain.Repositories;
+using ExportManagementAPI.Domain.Services;
+using ExportManagementAPI.Infrastructure.Repositories;
+using ExportManagementAPI.Web.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +36,22 @@ namespace ExportManagementAPI.Web
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "ExportManagementAPI.Web", Version = "v1"});
             });
+
+            //region Repository Dependency Injections
+
+            services.AddTransient<IUserRepositoryAsync, UserRepositoryAsync>();
+            services.AddTransient<IUserTokenRepositoryAsync, UserTokenRepositoryAsync>();
+
+            //endregion
+
+            //region Service Dependency Injections
+
+            services.AddTransient<IAuthenticationService, AuthenticationService>();
+            services.AddTransient<IPasswordService, PasswordService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserTokenService, UserTokenService>();
+
+            //endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +69,8 @@ namespace ExportManagementAPI.Web
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

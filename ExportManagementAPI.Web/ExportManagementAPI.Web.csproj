@@ -11,7 +11,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers" />
+      <ProjectReference Include="..\ExportManagementAPI.Application\ExportManagementAPI.Application.csproj" />
+      <ProjectReference Include="..\ExportManagementAPI.Domain\ExportManagementAPI.Domain.csproj" />
+      <ProjectReference Include="..\ExportManagementAPI.Infrastructure\ExportManagementAPI.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
