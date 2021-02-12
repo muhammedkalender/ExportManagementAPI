@@ -14,7 +14,6 @@ namespace ExportManagementAPI.Domain.Repositories
         Task<UserUpdateResponseEntity> UpdateAsync(UserUpdateRequestEntity entity);
         Task<UserDeleteResponseEntity> DeleteAsync(Guid guid);
         Task<IEnumerable<UserResponseEntity>> GetAllAsync();
-
         Task<IEnumerable<UserEntity>> FindByCondition(
             Expression<Func<UserEntity, bool>> expression);
     }

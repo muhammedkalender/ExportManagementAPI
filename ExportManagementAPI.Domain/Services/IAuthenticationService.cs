@@ -8,5 +8,11 @@ namespace ExportManagementAPI.Domain.Services
     {
         Task<ResponseEntity<AuthenticateResponse>> AuthenticateAsync(AuthenticateRequest authenticateRequest,
             string ipAddress);
+        Task<ResponseEntity<RefreshTokenResponse>> RefreshTokenAsync(RefreshTokenRequest refreshTokenRequest,
+            string ipAddress);
+        Task<ResponseEntity<RevokeTokenResponse>> RevokeTokenAsync(RevokeTokenRequest revokeTokenRequest,
+            string ipAddress);
+        Task<ResponseEntity<ForgotPasswordResponse>> ForgotPassword(ForgotPasswordRequest forgotPasswordRequest);
+        Task<ResponseEntity<ResetPasswordResponse>> ResetPassword(ResetPasswordRequest resetPasswordRequest);
     }
 }

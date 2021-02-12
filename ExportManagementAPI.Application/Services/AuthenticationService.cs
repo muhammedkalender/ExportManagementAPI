@@ -99,9 +99,30 @@ namespace ExportManagementAPI.Application.Services
                 Email = user.Email,
                 Status = user.Status.Type.ToString(),
                 RefreshToken = userToken.Token,
+                ActionTime = DateTime.UtcNow
             };
 
-            throw new System.NotImplementedException();
+            return new ResponseEntity<AuthenticateResponse>(response);
+        }
+
+        public Task<ResponseEntity<ForgotPasswordResponse>> ForgotPassword(ForgotPasswordRequest forgotPasswordRequest)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ResponseEntity<RefreshTokenResponse>> RefreshTokenAsync(RefreshTokenRequest refreshTokenRequest, string ipAddress)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ResponseEntity<ResetPasswordResponse>> ResetPassword(ResetPasswordRequest resetPasswordRequest)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ResponseEntity<RevokeTokenResponse>> RevokeTokenAsync(RevokeTokenRequest revokeTokenRequest, string ipAddress)
+        {
+            throw new NotImplementedException();
         }
 
         private Task<JwtSecurityToken> GenerateJwtToken(UserEntity user)

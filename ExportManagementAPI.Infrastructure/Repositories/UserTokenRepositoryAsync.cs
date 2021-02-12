@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using ExportManagementAPI.Domain.Entities.User;
 using ExportManagementAPI.Domain.Entities.UserToken;
 using ExportManagementAPI.Domain.Repositories;
 

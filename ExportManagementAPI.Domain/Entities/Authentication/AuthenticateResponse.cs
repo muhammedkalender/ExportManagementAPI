@@ -1,4 +1,6 @@
-﻿namespace ExportManagementAPI.Domain.Entities.Authentication
+﻿using System;
+
+namespace ExportManagementAPI.Domain.Entities.Authentication
 {
     public class AuthenticateResponse
     {
@@ -7,5 +9,6 @@
         public string Status { get; set; }
         public string Token { get; set; }
         public string RefreshToken { get; set; }
+        public DateTime ActionTime { get; set; }
     }
 }

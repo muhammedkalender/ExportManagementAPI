@@ -1,3 +1,4 @@
+using ExportManagement.Web.Extensions;
 using ExportManagementAPI.Application.Services;
 using ExportManagementAPI.Domain.Repositories;
 using ExportManagementAPI.Domain.Services;
@@ -25,10 +26,10 @@ namespace ExportManagementAPI.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo {Title = "ExportManagementAPI.Web", Version = "v1"});
-            });
+
+            services.AddJwtTokenAuthentication(Configuration);
+            services.AddApiVersioningExtension();
+            services.AddSwaggerConfiguration();
 
             //region Repository Dependency Injections
 
@@ -61,9 +62,13 @@ namespace ExportManagementAPI.Web
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseMiddleware<ErrorHandlerMiddleware>();
+
+            app.UseSwaggerSetup();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
